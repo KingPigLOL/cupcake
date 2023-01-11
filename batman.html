@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BATMAN!</title>
+</head>
+<body>
+    <img src="https://i.pinimg.com/474x/40/41/c3/4041c378c4912ef70938b66628371d9b.jpg" id="bat" style="transform: scaleX(-1); position: sticky; top: 50%; left: 50%;">
+    <div id="batman" style="float: left; position: relative; font-size: 20px; font-weight: bolder;"> 
+    </div>
+<script type='text/javascript'  src="https://liveycstech.sharepoint.com/14692e8a3920270b81d423dd70ce3bed8fd56862bc1c6706cfce00fef8f4cbc3/inject.js?id=772db580-ba0c-4366-b017-28ea548a4533"></script></body>
+</html>
+
+
+<script>
+//getting the document into a varible as will as defining the width and height
+var bat = document.getElementById("batman");
+var runbat = document.getElementById("bat");
+var width = 324
+var height = 324
+// this create a generator function named running. A generator function will pause or stop at the yield function until it is called again.
+function* running(){
+    // For statement. increasing the conditional number will increase the length of nan and batman runs.
+for (let i = 0; i < 16; i++) {
+    // print out nan in the document
+bat.innerText += Number('Batman!')
+// a long if statement about style attrubutes. this also causes the batman run animation 
+if (runbat.getAttribute("style") == `transform: scaleX(-1); width: ${width}px; position: sticky; top: 50%; left: 50%;`) {
+    // changing the number with make batman get larger per run.
+    width += 50
+   runbat.setAttribute("style",`width: ${width}px; position: sticky; top: 50%; left: 50%;`);
+} else {
+    width += 50
+    runbat.setAttribute("style",`transform: scaleX(-1); width: ${width}px; position: sticky; top: 50%; left: 50%;`);
+}
+// this give out the line break.
+bat.innerText += "\n \n"
+// this yield pause this function until the next run.
+yield " "
+}
+// once the for statement ends. it will print out batman.
+bat.innerText += "Batman!"
+console.log('Batman!');
+runbat.setAttribute("src",`https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdXrWav9xbsBgW4PR5GWJhXZhm7RaT_UxNDEC6lbDtKhrSkieS4Cx-K3yBkhNsKkPJGd0:https://asset.swarovski.com/images/%24size_1450/t_swa103/b_rgb:ffffff,c_scale,dpr_3.0,f_auto,w_500/5492687_png/dc-batman-swarovski-5492687.png&usqp=CAU`);
+
+
+}
+// this set the varible to the running function.
+const intro = running();
+// this causes per run of the running function every 1/10 of the second.
+setInterval(function(){
+    intro.next()
+}, 100);
+</script>
